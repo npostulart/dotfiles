@@ -1,0 +1,41 @@
+# PATH
+export GOPATH=$HOME/gocode
+
+coreutils_path=`brew --prefix coreutils`
+export PATH=$HOME/.cargo/bin:$coreutils_path/libexec/gnubin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin:$PATH
+
+# OH MY ZSH CONFIG
+CASE_SENSITIVE="false"
+HYPHEN_INSENSITIVE="true"
+COMPLETION_WAITING_DOTS="true"
+
+# LOAD ANTIGEN
+source /usr/local/share/antigen/antigen.zsh
+
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+antigen bundle npm
+antigen bundle osx
+antigen bundle zsh-users/zsh-completions
+
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Load the theme.
+# You probably will want to install powerline fonts https://github.com/powerline/fonts
+antigen theme $HOME/.dotfiles/zsh/theme niklas
+
+# Tell antigen that you're done.
+antigen apply
+
+source $HOME/.dotfiles/zsh/aliases.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export MICRO_TRUECOLOR=1
