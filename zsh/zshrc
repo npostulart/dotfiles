@@ -1,6 +1,8 @@
 # PATH
 export GOPATH=$HOME/gocode
 
+export TERM="xterm-256color"
+
 coreutils_path=`brew --prefix coreutils`
 export PATH=$HOME/.cargo/bin:$coreutils_path/libexec/gnubin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin:$PATH
 
